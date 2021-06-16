@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>MarkdownDemo</title>
+		<link rel="stylesheet" type="text/css" href="editor.md/css/editormd.min.css" />
+	</head>
+	<body>
+		<center>
+			<button type="button" id="getMarkdown">Markdown 源码</button>&emsp;&emsp;
+			<button type="button" id="getHTML">HTML 源码</button>&emsp;&emsp;
+			<button type="button" id="getPreviewedHTML">预览窗口里的 HTML</button>&emsp;&emsp;
+		</center>
+		<br>
+		<div id="test-editor"></div>
+	</body>
+</html>
+<script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="editor.md/editormd.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function() {
+		var editor = editormd("test-editor", {
+			width: "50%",
+			height: "500",
+			path: "editor.md/lib/",
+			saveHTMLToTextarea : true
+		});
+		$("#getMarkdown").click(function() {
+			alert(editor.getMarkdown(),"标题");
+		});
+		$("#getHTML").click(function() {
+			alert(editor.getHTML());
+		});
+		$("#getPreviewedHTML").click(function() {
+			alert(editor.getPreviewedHTML());
+		});
+	});
+</script>
